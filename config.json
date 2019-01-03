@@ -1,0 +1,147 @@
+{
+  "osrepo": "balena-os/meta-balena",
+  "production": "api.balena-cloud.com",
+  "staging": "api.balena-staging.com",
+  "devicetypes": [
+    {
+      "name": "ARTIK 530",
+      "slug": "artik530",
+      "repo": "balena-os/balena-artik"
+    },
+    {
+      "name": "ARTIK 533s",
+      "slug": "artik533s",
+      "repo": "balena-os/balena-artik"
+    },
+    {
+      "name": "ARTIK 710",
+      "slug": "artik710",
+      "repo": "balena-os/balena-artik710"
+    },
+    {
+      "name": "ASUS Tinkerboard",
+      "slug": "asus-tinker-board",
+      "repo": "balena-os/balena-asus-tinker-board"
+    },
+    {
+      "name": "ASUS Tinkerboard S",
+      "slug": "asus-tinker-board-s",
+      "repo": "balena-os/balena-asus-tinker-board"
+    },
+    {
+      "name": "BananaPi M1+",
+      "slug": "bananapi-m1-plus",
+      "repo": "balena-os/balena-allwinner"
+    },
+    {
+      "name": "Beaglebone Black",
+      "slug": "beaglebone-black",
+      "repo": "balena-os/balena-beaglebone"
+    },
+    {
+      "name": "Beaglebone Green",
+      "slug": "beaglebone-green",
+      "repo": "balena-os/balena-beaglebone"
+    },
+    {
+      "name": "Beaglebone Green Wifi",
+      "slug": "beaglebone-green-wifi",
+      "repo": "balena-os/balena-beaglebone"
+    },
+    {
+      "name": "Balena FIN",
+      "slug": "fincm3",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
+      "name": "Intel Edison",
+      "slug": "intel-edison",
+      "repo": "balena-os/balena-edison"
+    },
+    {
+      "name": "Intel NUC",
+      "slug": "intel-nuc",
+      "repo": "balena-os/balena-intel"
+    },
+    {
+      "name": "IOT2000",
+      "slug": "iot2000",
+      "repo": "balena-os/balena-iot2000"
+    },
+    {
+      "name": "Jetson TX1",
+      "slug": "jetson-tx1",
+      "repo": "balena-os/balena-jetson-tx1"
+    },
+    {
+      "name": "Jetson TX2",
+      "slug": "jetson-tx2",
+      "repo": "balena-os/balena-jetson-tx2"
+    },
+    {
+      "name": "ODroid C1",
+      "slug": "odroid-c1",
+      "repo": "balena-os/balena-odroid"
+    },
+    {
+      "name": "ODroid XU4",
+      "slug": "odroid-xu4",
+      "repo": "balena-os/balena-odroid"
+    },
+    {
+      "name": "OrangePi Plus2",
+      "slug": "orangepi-plus2",
+      "repo": "balena-os/balena-allwinner"
+    },
+    {
+      "name": "Orbitty-TX2",
+      "slug": "orbitty-tx2",
+      "repo": "balena-os/balena-jetson-tx2"
+    },
+    {
+      "name": "Pocket Beagle",
+      "slug": "beaglebone-pocket",
+      "repo": "balena-os/balena-beaglebone"
+    },
+    {
+      "name": "QEMU 32bit",
+      "slug": "qemux86",
+      "repo": "balena-os/balena-qemu"
+    },
+    {
+      "name": "QEMU 64bit",
+      "slug": "qemux86-64",
+      "repo": "balena-os/balena-qemu"
+    },
+    {
+      "name": "Raspberry Pi 1/Zero",
+      "slug": "raspberry-pi",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
+      "name": "Raspberry Pi 2",
+      "slug": "raspberry-pi2",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
+      "name": "Raspberry Pi 3",
+      "slug": "raspberrypi3",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
+      "name": "SKX2",
+      "slug": "skx2",
+      "repo": "balena-os/balena-jetson-tx2"
+    },
+    {
+      "name": "TS4900",
+      "slug": "ts4900",
+      "repo": "balena-os/balena-ts"
+    },
+    {
+      "name": "UP-Board",
+      "slug": "up-board",
+      "repo": "balena-os/balena-up-board"
+    }
+  ]
+}
