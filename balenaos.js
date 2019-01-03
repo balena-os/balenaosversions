@@ -55,8 +55,8 @@ $(document).ready(function() {
           });
           if (key) {
             var buildId = stagingDeviceTypes[key].buildId;
-            $(`td.staging.${config.devicetypes[i].slug}`).html(buildId);
             var version = buildId.replace(".prod", "");
+            $(`td.staging.${config.devicetypes[i].slug}`).html(version);
             if (version.startsWith(osVersion)) {
               $(`td.staging.${config.devicetypes[i].slug}`).addClass(
                 "uptodate"
@@ -76,8 +76,8 @@ $(document).ready(function() {
           });
           if (key) {
             var buildId = productionDeviceTypes[key].buildId;
-            $(`td.production.${config.devicetypes[i].slug}`).html(buildId);
             var version = buildId.replace(".prod", "");
+            $(`td.production.${config.devicetypes[i].slug}`).html(version);
             if (version.startsWith(osVersion)) {
               $(`td.production.${config.devicetypes[i].slug}`).addClass(
                 "uptodate"
