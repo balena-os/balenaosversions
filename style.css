@@ -7,6 +7,14 @@ table, th, td {
   margin: 10px;
 }
 
+table#balenaos tr td {
+  font-weight: bold;
+}
+
+table#balenaos tr td, td.repo, td.staging, td.production {
+  text-align: center;
+}
+
 .uptodate {
   background-color: lightgreen;
 }
