@@ -79,6 +79,11 @@
       "repo": "balena-os/balena-jetson-tx2"
     },
     {
+      "name": "Nitrogen 6X",
+      "slug": "nitrogen6x",
+      "repo": "balena-os/balena-fsl-arm"
+    },
+    {
       "name": "ODroid C1",
       "slug": "odroid-c1",
       "repo": "balena-os/balena-odroid"
@@ -129,6 +134,11 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
+      "name": "Revolution Pi Core 3",
+      "slug": "revpi-core-3",
+      "repo": "balena-os/balena-revpi"
+    },
+    {
       "name": "SKX2",
       "slug": "skx2",
       "repo": "balena-os/balena-jetson-tx2"
@@ -142,6 +152,16 @@
       "name": "UP-Board",
       "slug": "up-board",
       "repo": "balena-os/balena-up-board"
+    },
+    {
+      "name": "Variscite DART-6UL",
+      "slug": "imx6ul-var-dart",
+      "repo": "balena-os/balena-variscite"
+    },
+    {
+      "name": "Variscite VAR-SOM-MX6",
+      "slug": "var-som-mx6",
+      "repo": "balena-os/balena-variscite"
     }
   ]
 }
