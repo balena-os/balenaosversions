@@ -14,6 +14,7 @@ var getVersion = function(deviceInfo) {
 $(document).ready(function() {
   $.getJSON("config.json", function(data) {
     var config = data;
+    var platformversions = {};
 
     _(data.devicetypes).each(function(d) {
       $("table#devices tr:last").after(
@@ -25,6 +26,7 @@ $(document).ready(function() {
           d.slug
         }">checking...</td></tr>`
       );
+      platformversions[d.slug] = {};
     });
 
     $.when(
@@ -50,43 +52,29 @@ $(document).ready(function() {
 
         var stagingDeviceTypes = stagingAPIResult[0].deviceTypes;
         for (var i = 0; i < config.devicetypes.length; ++i) {
+          var slug = config.devicetypes[i].slug;
           var key = _.findKey(stagingDeviceTypes, {
-            slug: config.devicetypes[i].slug
+            slug: slug
           });
           if (key) {
             var buildId = stagingDeviceTypes[key].buildId;
             var version = buildId.replace(".prod", "");
             $(`td.staging.${config.devicetypes[i].slug}`).html(version);
-            if (version.startsWith(osVersion)) {
-              $(`td.staging.${config.devicetypes[i].slug}`).addClass(
-                "uptodate"
-              );
-            } else {
-              $(`td.staging.${config.devicetypes[i].slug}`).addClass(
-                "outofdate"
-              );
-            }
+            platformversions[slug]["staging"] = version;
           }
         }
 
         var productionDeviceTypes = productionAPIResult[0].deviceTypes;
         for (var i = 0; i < config.devicetypes.length; ++i) {
+          var slug = config.devicetypes[i].slug;
           var key = _.findKey(productionDeviceTypes, {
-            slug: config.devicetypes[i].slug
+            slug: slug
           });
           if (key) {
             var buildId = productionDeviceTypes[key].buildId;
             var version = buildId.replace(".prod", "");
             $(`td.production.${config.devicetypes[i].slug}`).html(version);
-            if (version.startsWith(osVersion)) {
-              $(`td.production.${config.devicetypes[i].slug}`).addClass(
-                "uptodate"
-              );
-            } else {
-              $(`td.production.${config.devicetypes[i].slug}`).addClass(
-                "outofdate"
-              );
-            }
+            platformversions[slug]["production"] = version;
           }
         }
 
@@ -99,9 +87,11 @@ $(document).ready(function() {
             console.log(r);
             var slug = r.info.slug;
             var version = r.result.version;
-            var changelogversion = version.replace(/[\.\+]/g, '');
+            var changelogversion = version.replace(/[\.\+]/g, "");
             var date = moment(r.result.date);
             var repo = r.info.repo;
+            var repouptodate = false;
+
             $(`td.repo.${slug}`).html(
               `<a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogversion}">${version}</a> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
                 "dddd, MMMM Do YYYY, h:mm:ss a"
@@ -110,8 +100,26 @@ $(document).ready(function() {
 
             if (version.startsWith(osVersion)) {
               $(`td.repo.${slug}`).addClass("uptodate");
+              repouptodate = true;
             } else {
               $(`td.repo.${slug}`).addClass("outofdate");
+            }
+
+            // Mark staging versions up-to-date status
+            if (repouptodate && platformversions[slug]["staging"] === version) {
+              $(`td.staging.${slug}`).addClass("uptodate");
+            } else {
+              $(`td.staging.${slug}`).addClass("outofdate");
+            }
+
+            // Mark production versions up-to-date status
+            if (
+              repouptodate &&
+              platformversions[slug]["production"] === version
+            ) {
+              $(`td.production.${slug}`).addClass("uptodate");
+            } else {
+              $(`td.production.${slug}`).addClass("outofdate");
             }
           });
         });
