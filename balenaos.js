@@ -6,7 +6,7 @@ var getVersion = function(deviceInfo) {
       }/master/.versionbot/CHANGELOG.yml`
     ).then(function(data) {
       var doc = jsyaml.load(data);
-      return { slug: deviceInfo.slug, result: doc[0] };
+      return { info: deviceInfo, result: doc[0] };
     })
   );
 };
@@ -97,11 +97,13 @@ $(document).ready(function() {
         Promise.all(promises).then(function(results) {
           _(results).each(function(r) {
             console.log(r);
-            var slug = r.slug;
+            var slug = r.info.slug;
             var version = r.result.version;
+            var changelogversion = version.replace(/[\.\+]/g, '');
             var date = moment(r.result.date);
+            var repo = r.info.repo;
             $(`td.repo.${slug}`).html(
-              `${version} (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
+              `<a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogversion}">${version}</a> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
                 "dddd, MMMM Do YYYY, h:mm:ss a"
               )}</span></div>)`
             );
