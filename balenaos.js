@@ -1,3 +1,5 @@
+var storage = window.localStorage;
+
 var getVersion = function(deviceInfo) {
   return Promise.resolve(
     $.get(
@@ -10,6 +12,14 @@ var getVersion = function(deviceInfo) {
     })
   );
 };
+
+var highlightNew = async function(key, newValue, entry) {
+  var previousValue = storage.getItem(key);
+  if (previousValue && previousValue !== newValue) {
+    $(entry).addClass("new");
+  }
+  storage.setItem(key, newValue);
+}
 
 $(document).ready(function() {
   $.getJSON("config.json", function(data) {
@@ -43,12 +53,13 @@ $(document).ready(function() {
         var osVersion = doc[0].version;
         var releaseDate = moment(doc[0].date);
 
-        $("td#osversion").html(osVersion);
+        $("td#osversion").html(`<span>${osVersion}</span>`);
         $("td#osreleasedate").html(
           `<div class="tooltip">${releaseDate.fromNow()}<span class="tooltiptext">${releaseDate.format(
             "dddd, MMMM Do YYYY, h:mm:ss a"
           )}</span></div>`
         );
+        highlightNew('osVersion', osVersion, "td#osversion span");
 
         var stagingDeviceTypes = stagingAPIResult[0].deviceTypes;
         for (var i = 0; i < config.devicetypes.length; ++i) {
@@ -59,8 +70,9 @@ $(document).ready(function() {
           if (key) {
             var buildId = stagingDeviceTypes[key].buildId;
             var version = buildId.replace(".prod", "");
-            $(`td.staging.${config.devicetypes[i].slug}`).html(version);
+            $(`td.staging.${slug}`).html(`<span>${version}</span>`);
             platformversions[slug]["staging"] = version;
+            highlightNew(`staging/${slug}`, version, `td.staging.${slug} span`);
           }
         }
 
@@ -73,8 +85,9 @@ $(document).ready(function() {
           if (key) {
             var buildId = productionDeviceTypes[key].buildId;
             var version = buildId.replace(".prod", "");
-            $(`td.production.${config.devicetypes[i].slug}`).html(version);
+            $(`td.production.${slug}`).html(`<span>${version}</span>`);
             platformversions[slug]["production"] = version;
+            highlightNew(`production/${slug}`, version+'x', `td.production.${slug} span`);
           }
         }
 
@@ -93,10 +106,11 @@ $(document).ready(function() {
             var repouptodate = false;
 
             $(`td.repo.${slug}`).html(
-              `<a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogversion}">${version}</a> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
+              `<span><a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogversion}">${version}</a></span> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
                 "dddd, MMMM Do YYYY, h:mm:ss a"
               )}</span></div>)`
             );
+            highlightNew(`repo/${slug}`, version, `td.repo.${slug} span`);
 
             if (version.startsWith(osVersion)) {
               $(`td.repo.${slug}`).addClass("uptodate");

@@ -8,7 +8,7 @@ table, th, td {
 }
 
 table#balenaos tr td {
-  font-weight: bold;
+  font-size: 1.35em;
 }
 
 table#balenaos tr td, td.repo, td.staging, td.production {
@@ -21,6 +21,10 @@ table#balenaos tr td, td.repo, td.staging, td.production {
 
 .outofdate {
   background-color: hotpink;
+}
+
+.new {
+  font-weight: bold;
 }
 
 /* Tooltip container */
