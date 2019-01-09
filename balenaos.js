@@ -106,7 +106,7 @@ $(document).ready(function() {
             var repouptodate = false;
 
             $(`td.repo.${slug}`).html(
-              `<span><a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogversion}">${version}</a></span> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
+              `<span><a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogversion}" target="_blank">${version}</a></span> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
                 "dddd, MMMM Do YYYY, h:mm:ss a"
               )}</span></div>)`
             );
