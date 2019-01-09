@@ -21,6 +21,10 @@ var highlightNew = async function(key, newValue, entry) {
   storage.setItem(key, newValue);
 }
 
+var changelogVersion = function(version) {
+  return version.replace(/[\.\+]/g, "");
+}
+
 $(document).ready(function() {
   $.getJSON("config.json", function(data) {
     var config = data;
@@ -53,7 +57,7 @@ $(document).ready(function() {
         var osVersion = doc[0].version;
         var releaseDate = moment(doc[0].date);
 
-        $("td#osversion").html(`<span>${osVersion}</span>`);
+        $("td#osversion").html(`<span><a href="https://github.com/${config.osrepo}/blob/master/CHANGELOG.md#v${changelogVersion(osVersion)}" target="_blank">${osVersion}</a></span>`);
         $("td#osreleasedate").html(
           `<div class="tooltip">${releaseDate.fromNow()}<span class="tooltiptext">${releaseDate.format(
             "dddd, MMMM Do YYYY, h:mm:ss a"
@@ -100,13 +104,12 @@ $(document).ready(function() {
             console.log(r);
             var slug = r.info.slug;
             var version = r.result.version;
-            var changelogversion = version.replace(/[\.\+]/g, "");
             var date = moment(r.result.date);
             var repo = r.info.repo;
             var repouptodate = false;
 
             $(`td.repo.${slug}`).html(
-              `<span><a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogversion}" target="_blank">${version}</a></span> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
+              `<span><a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogVersion(version)}" target="_blank">${version}</a></span> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
                 "dddd, MMMM Do YYYY, h:mm:ss a"
               )}</span></div>)`
             );
