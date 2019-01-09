@@ -54,6 +54,11 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
+      "name": "Hummingboard",
+      "slug": "hummingboard",
+      "repo": "balena-os/balena-fsl-arm"
+    },
+    {
       "name": "Intel Edison",
       "slug": "intel-edison",
       "repo": "balena-os/balena-edison"
