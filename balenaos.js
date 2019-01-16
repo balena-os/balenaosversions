@@ -121,7 +121,6 @@ $(document).ready(function() {
         }
         Promise.all(promises).then(function(results) {
           _(results).each(function(r) {
-            console.log(r);
             var slug = r.info.slug;
             var version = r.result.version;
             var date = moment(r.result.date);
