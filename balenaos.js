@@ -52,10 +52,30 @@ $(document).ready(function() {
       $.get(`https://${config.staging}/config`),
       $.get(`https://${config.production}/config`)
     )
-      .done(function(osrepoResult, stagingAPIResult, productionAPIResult) {
+      .done(async function(osrepoResult, stagingAPIResult, productionAPIResult) {
         var doc = jsyaml.load(osrepoResult[0]);
         var osVersion = doc[0].version;
         var releaseDate = moment(doc[0].date);
+
+        // Check potential patched verion on branch A.B.x (if released version is A.B.C)
+        var patchOsBranch = osVersion.replace(/(.*\..*\.).*/, '$1x');
+        await $.get(
+          `https://raw.githubusercontent.com/${
+            config.osrepo
+          }/${patchOsBranch}/.versionbot/CHANGELOG.yml`
+        )
+        .done(function(osrepoPatchResult) {
+            var docPatch = jsyaml.load(osrepoPatchResult);
+            var osPatchVersion = docPatch[0].version;
+            if (osPatchVersion !== osVersion) {
+              console.log(`Overriding ${osVersion} with patch version ${osPatchVersion}`);
+              osVersion = osPatchVersion
+              releaseDate = moment(docPatch[0].date);
+            }
+        })
+        .fail(function() {
+          console.log(`Couldn't get CHANGELOG for patch branch ${patchOsBranch}, ignorning`)
+        })
 
         $("td#osversion").html(`<span><a href="https://github.com/${config.osrepo}/blob/master/CHANGELOG.md#v${changelogVersion(osVersion)}" target="_blank">${osVersion}</a></span>`);
         $("td#osreleasedate").html(
