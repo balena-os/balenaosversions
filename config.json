@@ -54,6 +54,11 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
+      "name": "CompuLab CL-SOM-iMX8",
+      "slug": "cl-som-imx8",
+      "repo": "balena-os/balena-compulab"
+    },
+    {
       "name": "Hummingboard",
       "slug": "hummingboard",
       "repo": "balena-os/balena-fsl-arm"
