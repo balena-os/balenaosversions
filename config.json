@@ -174,13 +174,13 @@
       "repo": "balena-os/balena-variscite"
     },
     {
-      "name": "Variscite imx7-var-som",
-      "slug": "imx7-var-som",
+      "name": "Variscite SOM-MX6",
+      "slug": "var-som-mx6",
       "repo": "balena-os/balena-variscite"
     },
     {
-      "name": "Variscite SOM-MX6",
-      "slug": "var-som-mx6",
+      "name": "Variscite SOM-MX7",
+      "slug": "imx7-var-som",
       "repo": "balena-os/balena-variscite"
     }
   ]
