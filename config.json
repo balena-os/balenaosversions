@@ -109,7 +109,7 @@
       "repo": "balena-os/balena-allwinner"
     },
     {
-      "name": "Orbitty-TX2",
+      "name": "CTI Orbitty TX2",
       "slug": "orbitty-tx2",
       "repo": "balena-os/balena-jetson-tx2"
     },
