@@ -146,7 +146,7 @@
     {
       "name": "Revolution Pi Core 3",
       "slug": "revpi-core-3",
-      "repo": "balena-os/balena-revpi"
+      "repo": "balena-os/balena-raspberrypi"
     },
     {
       "name": "CTI Spacely TX2",
