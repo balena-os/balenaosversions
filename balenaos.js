@@ -57,25 +57,29 @@ $(document).ready(function() {
         var osVersion = doc[0].version;
         var releaseDate = moment(doc[0].date);
 
-        // Check potential patched verion on branch A.B.x (if released version is A.B.C)
-        var patchOsBranch = osVersion.replace(/(.*\..*\.).*/, '$1x');
-        await $.get(
-          `https://raw.githubusercontent.com/${
-            config.osrepo
-          }/${patchOsBranch}/.versionbot/CHANGELOG.yml`
-        )
-        .done(function(osrepoPatchResult) {
-            var docPatch = jsyaml.load(osrepoPatchResult);
-            var osPatchVersion = docPatch[0].version;
-            if (osPatchVersion !== osVersion) {
-              console.log(`Overriding ${osVersion} with patch version ${osPatchVersion}`);
-              osVersion = osPatchVersion
-              releaseDate = moment(docPatch[0].date);
-            }
-        })
-        .fail(function() {
-          console.log(`Couldn't get CHANGELOG for patch branch ${patchOsBranch}, ignorning`)
-        })
+        try {
+          // Check potential patched verion on branch A.B.x (if released version is A.B.C)
+          var patchOsBranch = osVersion.replace(/(.*\..*\.).*/, '$1x');
+          let something = await $.get(
+            `https://raw.githubusercontent.com/${
+              config.osrepo
+            }/${patchOsBranch}/.versionbot/CHANGELOG.yml`
+          )
+          .done(function(osrepoPatchResult) {
+              var docPatch = jsyaml.load(osrepoPatchResult);
+              var osPatchVersion = docPatch[0].version;
+              if (osPatchVersion !== osVersion) {
+                console.log(`Overriding ${osVersion} with patch version ${osPatchVersion}`);
+                osVersion = osPatchVersion
+                releaseDate = moment(docPatch[0].date);
+              }
+          })
+          .fail(function() {
+            console.log(`Couldn't get CHANGELOG for patch branch ${patchOsBranch}, ignorning`)
+          })
+        } catch {
+          // this is to catch the exception from the previous request and not to bail
+        }
 
         $("td#osversion").html(`<span><a href="https://github.com/${config.osrepo}/blob/master/CHANGELOG.md#v${changelogVersion(osVersion)}" target="_blank">${osVersion}</a></span>`);
         $("td#osreleasedate").html(
