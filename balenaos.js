@@ -19,13 +19,30 @@ var highlightNew = async function(key, newValue, entry) {
     $(entry).addClass("new");
   }
   storage.setItem(key, newValue);
-}
+};
 
 var changelogVersion = function(version) {
   return version.replace(/[\.\+]/g, "");
-}
+};
+
+const lastLoadShow = function() {
+  let lastLoadKey = "lastLoad";
+  let lastLoad = storage.getItem(lastLoadKey);
+  if (lastLoad) {
+    let lastLoadDate = moment(parseInt(lastLoad));
+    $("#lastLoadTime").html(
+      `<div class="tooltip">${lastLoadDate.fromNow()}<span class="tooltiptext">${lastLoadDate.format(
+        "dddd, MMMM Do YYYY, h:mm:ss a"
+      )}</span></div>`
+    );
+  } else {
+    $("#lastLoadTime").html("Unknown");
+  }
+  storage.setItem(lastLoadKey, Date.now());
+};
 
 $(document).ready(function() {
+  lastLoadShow();
   $.getJSON("config.json", function(data) {
     var config = data;
     var platformversions = {};
@@ -52,42 +69,56 @@ $(document).ready(function() {
       $.get(`https://${config.staging}/config`),
       $.get(`https://${config.production}/config`)
     )
-      .done(async function(osrepoResult, stagingAPIResult, productionAPIResult) {
+      .done(async function(
+        osrepoResult,
+        stagingAPIResult,
+        productionAPIResult
+      ) {
         var doc = jsyaml.load(osrepoResult[0]);
         var osVersion = doc[0].version;
         var releaseDate = moment(doc[0].date);
 
         try {
           // Check potential patched verion on branch A.B.x (if released version is A.B.C)
-          var patchOsBranch = osVersion.replace(/(.*\..*\.).*/, '$1x');
+          var patchOsBranch = osVersion.replace(/(.*\..*\.).*/, "$1x");
           let something = await $.get(
             `https://raw.githubusercontent.com/${
               config.osrepo
             }/${patchOsBranch}/.versionbot/CHANGELOG.yml`
           )
-          .done(function(osrepoPatchResult) {
+            .done(function(osrepoPatchResult) {
               var docPatch = jsyaml.load(osrepoPatchResult);
               var osPatchVersion = docPatch[0].version;
               if (osPatchVersion !== osVersion) {
-                console.log(`Overriding ${osVersion} with patch version ${osPatchVersion}`);
-                osVersion = osPatchVersion
+                console.log(
+                  `Overriding ${osVersion} with patch version ${osPatchVersion}`
+                );
+                osVersion = osPatchVersion;
                 releaseDate = moment(docPatch[0].date);
               }
-          })
-          .fail(function() {
-            console.log(`Couldn't get CHANGELOG for patch branch ${patchOsBranch}, ignorning`)
-          })
+            })
+            .fail(function() {
+              console.log(
+                `Couldn't get CHANGELOG for patch branch ${patchOsBranch}, ignorning`
+              );
+            });
         } catch {
           // this is to catch the exception from the previous request and not to bail
         }
 
-        $("td#osversion").html(`<span><a href="https://github.com/${config.osrepo}/blob/master/CHANGELOG.md#v${changelogVersion(osVersion)}" target="_blank">${osVersion}</a></span>`);
+        $("td#osversion").html(
+          `<span><a href="https://github.com/${
+            config.osrepo
+          }/blob/master/CHANGELOG.md#v${changelogVersion(
+            osVersion
+          )}" target="_blank">${osVersion}</a></span>`
+        );
         $("td#osreleasedate").html(
           `<div class="tooltip">${releaseDate.fromNow()}<span class="tooltiptext">${releaseDate.format(
             "dddd, MMMM Do YYYY, h:mm:ss a"
           )}</span></div>`
         );
-        highlightNew('osVersion', osVersion, "td#osversion span");
+        highlightNew("osVersion", osVersion, "td#osversion span");
 
         var stagingDeviceTypes = stagingAPIResult[0].deviceTypes;
         for (var i = 0; i < config.devicetypes.length; ++i) {
@@ -115,7 +146,11 @@ $(document).ready(function() {
             var version = buildId.replace(".prod", "");
             $(`td.production.${slug}`).html(`<span>${version}</span>`);
             platformversions[slug]["production"] = version;
-            highlightNew(`production/${slug}`, version+'x', `td.production.${slug} span`);
+            highlightNew(
+              `production/${slug}`,
+              version + "x",
+              `td.production.${slug} span`
+            );
           }
         }
 
@@ -132,7 +167,9 @@ $(document).ready(function() {
             var repouptodate = false;
 
             $(`td.repo.${slug}`).html(
-              `<span><a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogVersion(version)}" target="_blank">${version}</a></span> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
+              `<span><a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogVersion(
+                version
+              )}" target="_blank">${version}</a></span> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
                 "dddd, MMMM Do YYYY, h:mm:ss a"
               )}</span></div>)`
             );
