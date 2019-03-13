@@ -41,6 +41,27 @@ const lastLoadShow = function() {
   storage.setItem(lastLoadKey, Date.now());
 };
 
+const getYoctoVersion = async function(URL) {
+  const regex = /version: 'yocto-(.*)'/gim;
+  let yocto;
+  // const URL = "https://raw.githubusercontent.com/balena-os/balena-allwinner/master/orange-pi-zero.coffee";
+  await $.get(URL).then(data => {
+    let m;
+    while ((m = regex.exec(data)) !== null) {
+      // This is necessary to avoid infinite loops with zero-width matches
+      if (m.index === regex.lastIndex) {
+        regex.lastIndex++;
+      }
+      m.forEach((match, groupIndex) => {
+        if (groupIndex === 1) {
+          yocto = match;
+        }
+      });
+    }
+  });
+  return yocto;
+};
+
 $(document).ready(function() {
   lastLoadShow();
   $.getJSON("config.json", function(data) {
@@ -159,21 +180,28 @@ $(document).ready(function() {
           promises.push(getVersion(config.devicetypes[i]));
         }
         Promise.all(promises).then(function(results) {
-          _(results).each(function(r) {
+          _(results).each(async function(r) {
             var slug = r.info.slug;
             var version = r.result.version;
             var date = moment(r.result.date);
             var repo = r.info.repo;
             var repouptodate = false;
+            let reposlug = r.info.reposlug ? r.info.reposlug : slug;
 
             $(`td.repo.${slug}`).html(
               `<span><a href="https://github.com/${repo}/blob/master/CHANGELOG.md#v${changelogVersion(
                 version
               )}" target="_blank">${version}</a></span> (<div class="tooltip">${date.fromNow()}<span class="tooltiptext">${date.format(
                 "dddd, MMMM Do YYYY, h:mm:ss a"
-              )}</span></div>)`
+              )}</span></div>) <span class="yocto"></span>`
             );
             highlightNew(`repo/${slug}`, version, `td.repo.${slug} span`);
+            let yocto = await getYoctoVersion(
+              `https://raw.githubusercontent.com/${repo}/master/${reposlug}.coffee`
+            );
+            if (yocto) {
+              $(`td.repo.${slug} span.yocto`).text(`; (${yocto})`);
+            }
 
             if (version.startsWith(osVersion)) {
               $(`td.repo.${slug}`).addClass("uptodate");

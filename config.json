@@ -41,7 +41,8 @@
     {
       "name": "Beaglebone Black",
       "slug": "beaglebone-black",
-      "repo": "balena-os/balena-beaglebone"
+      "repo": "balena-os/balena-beaglebone",
+      "reposlug": "beaglebone"
     },
     {
       "name": "Beaglebone Green",
@@ -66,17 +67,20 @@
     {
       "name": "Hummingboard",
       "slug": "hummingboard",
-      "repo": "balena-os/balena-fsl-arm"
+      "repo": "balena-os/balena-fsl-arm",
+      "reposlug": "solidrun-imx6"
     },
     {
       "name": "Intel Edison",
       "slug": "intel-edison",
-      "repo": "balena-os/balena-edison"
+      "repo": "balena-os/balena-edison",
+      "reposlug": "edison"
     },
     {
       "name": "Intel NUC",
       "slug": "intel-nuc",
-      "repo": "balena-os/balena-intel"
+      "repo": "balena-os/balena-intel",
+      "reposlug": "genericx86-64"
     },
     {
       "name": "IOT2000",
@@ -151,12 +155,14 @@
     {
       "name": "Raspberry Pi 1/Zero",
       "slug": "raspberry-pi",
-      "repo": "balena-os/balena-raspberrypi"
+      "repo": "balena-os/balena-raspberrypi",
+      "reposlug": "raspberrypi"
     },
     {
       "name": "Raspberry Pi 2",
       "slug": "raspberry-pi2",
-      "repo": "balena-os/balena-raspberrypi"
+      "repo": "balena-os/balena-raspberrypi",
+      "reposlug": "raspberrypi2"
     },
     {
       "name": "Raspberry Pi 3",
