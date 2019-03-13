@@ -44,7 +44,6 @@ const lastLoadShow = function() {
 const getYoctoVersion = async function(URL) {
   const regex = /version: 'yocto-(.*)'/gim;
   let yocto;
-  // const URL = "https://raw.githubusercontent.com/balena-os/balena-allwinner/master/orange-pi-zero.coffee";
   await $.get(URL).then(data => {
     let m;
     while ((m = regex.exec(data)) !== null) {
