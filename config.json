@@ -4,6 +4,11 @@
   "staging": "api.balena-staging.com",
   "devicetypes": [
     {
+      "name": "Aetina N510 TX2",
+      "slug": "n510-tx2",
+      "repo": "balena-os/balena-jetson-tx2"
+    },
+    {
       "name": "ARTIK 530",
       "slug": "artik530",
       "repo": "balena-os/balena-artik"
@@ -94,6 +99,11 @@
       "repo": "balena-os/balena-fsl-arm"
     },
     {
+      "name": "Nitrogen 6X Quad 2GB",
+      "slug": "nitrogen6xq2g",
+      "repo": "balena-os/balena-fsl-arm"
+    },
+    {
       "name": "ODroid C1",
       "slug": "odroid-c1",
       "repo": "balena-os/balena-odroid"
@@ -102,6 +112,16 @@
       "name": "ODroid XU4",
       "slug": "odroid-xu4",
       "repo": "balena-os/balena-odroid"
+    },
+    {
+      "name": "OrangePi Zero",
+      "slug": "orange-pi-zero",
+      "repo": "balena-os/balena-allwinner"
+    },
+    {
+      "name": "OrangePi One",
+      "slug": "orange-pi-one",
+      "repo": "balena-os/balena-allwinner"
     },
     {
       "name": "OrangePi Plus2",
