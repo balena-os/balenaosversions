@@ -37,7 +37,7 @@ table#balenaos tr td, td.repo, td.staging, td.production {
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 250px;
   background-color: black;
   color: #fff;
   text-align: center;
