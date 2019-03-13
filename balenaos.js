@@ -62,6 +62,26 @@ const getYoctoVersion = async function(URL) {
   return yocto;
 };
 
+const getSupervisorVersion = async function(URL) {
+  const regex = /SUPERVISOR_TAG \?= "(.*)"/gim;
+  let supervisor;
+  await $.get(URL).then(data => {
+    let m;
+    while ((m = regex.exec(data)) !== null) {
+      // This is necessary to avoid infinite loops with zero-width matches
+      if (m.index === regex.lastIndex) {
+        regex.lastIndex++;
+      }
+      m.forEach((match, groupIndex) => {
+        if (groupIndex === 1) {
+          supervisor = match;
+        }
+      });
+    }
+  });
+  return supervisor;
+};
+
 $(document).ready(function() {
   lastLoadShow();
   $.getJSON("config.json", function(data) {
@@ -98,6 +118,11 @@ $(document).ready(function() {
         var doc = jsyaml.load(osrepoResult[0]);
         var osVersion = doc[0].version;
         var releaseDate = moment(doc[0].date);
+        let supervisorVersion = await getSupervisorVersion(
+          `https://raw.githubusercontent.com/${
+            config.osrepo
+          }/master/meta-resin-common/recipes-containers/resin-supervisor/resin-supervisor.inc`
+        );
 
         try {
           // Check potential patched verion on branch A.B.x (if released version is A.B.C)
@@ -107,7 +132,7 @@ $(document).ready(function() {
               config.osrepo
             }/${patchOsBranch}/.versionbot/CHANGELOG.yml`
           )
-            .done(function(osrepoPatchResult) {
+            .done(async function(osrepoPatchResult) {
               var docPatch = jsyaml.load(osrepoPatchResult);
               var osPatchVersion = docPatch[0].version;
               if (osPatchVersion !== osVersion) {
@@ -116,6 +141,11 @@ $(document).ready(function() {
                 );
                 osVersion = osPatchVersion;
                 releaseDate = moment(docPatch[0].date);
+                supervisorVersion = await getSupervisorVersion(
+                  `https://raw.githubusercontent.com/${
+                    config.osrepo
+                  }/${patchOsBranch}/meta-resin-common/recipes-containers/resin-supervisor/resin-supervisor.inc`
+                );
               }
             })
             .fail(function() {
@@ -138,6 +168,11 @@ $(document).ready(function() {
           `<div class="tooltip">${releaseDate.fromNow()}<span class="tooltiptext">${releaseDate.format(
             "dddd, MMMM Do YYYY, h:mm:ss a"
           )}</span></div>`
+        );
+        $("td#supervisorversion").html(
+          `<span><a href="https://github.com/${
+            config.supervisorrepo
+          }/blob/master/CHANGELOG.md" target="_blank">${supervisorVersion}</a></span>`
         );
         highlightNew("osVersion", osVersion, "td#osversion span");
 

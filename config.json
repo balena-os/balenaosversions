@@ -1,5 +1,6 @@
 {
   "osrepo": "balena-os/meta-balena",
+  "supervisorrepo": "balena-io/balena-supervisor",
   "production": "api.balena-cloud.com",
   "staging": "api.balena-staging.com",
   "devicetypes": [
