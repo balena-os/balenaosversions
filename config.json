@@ -99,6 +99,11 @@
       "repo": "balena-os/balena-jetson-tx2"
     },
     {
+      "name": "NanoPi Neo Air",
+      "slug": "nanopi-neo-air",
+      "repo": "balena-os/balena-allwinner"
+    },
+    {
       "name": "Nitrogen 6X",
       "slug": "nitrogen6x",
       "repo": "balena-os/balena-fsl-arm"
