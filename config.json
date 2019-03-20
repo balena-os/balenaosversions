@@ -208,7 +208,7 @@
     {
       "name": "Variscite DART-MX8M",
       "slug": "imx8m-var-dart",
-      "repo": "balena-os/balena-variscite"
+      "repo": "balena-os/balena-variscite-mx8"
     },
     {
       "name": "Variscite SOM-MX6",
