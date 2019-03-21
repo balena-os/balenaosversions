@@ -114,6 +114,11 @@
       "repo": "balena-os/balena-fsl-arm"
     },
     {
+      "name": "NPE X500 M3",
+      "slug": "npe-x500-m3",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
       "name": "ODroid C1",
       "slug": "odroid-c1",
       "repo": "balena-os/balena-odroid"
