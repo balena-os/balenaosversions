@@ -181,6 +181,11 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
+      "name": "Raspberry Pi 3 (using 64bit OS)",
+      "slug": "raspberrypi3-64",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
       "name": "Revolution Pi Core 3",
       "slug": "revpi-core-3",
       "repo": "balena-os/balena-raspberrypi"
