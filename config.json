@@ -89,6 +89,11 @@
       "repo": "balena-os/balena-iot2000"
     },
     {
+      "name": "Jetson Nano",
+      "slug": "jetson-nano",
+      "repo": "balena-os/balena-jetson-nano"
+    },
+    {
       "name": "Jetson TX1",
       "slug": "jetson-tx1",
       "repo": "balena-os/balena-jetson-tx1"
