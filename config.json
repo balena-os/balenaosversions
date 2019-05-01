@@ -10,19 +10,9 @@
       "repo": "balena-os/balena-jetson-tx2"
     },
     {
-      "name": "ARTIK 530",
-      "slug": "artik530",
-      "repo": "balena-os/balena-artik"
-    },
-    {
       "name": "ARTIK 533s",
       "slug": "artik533s",
       "repo": "balena-os/balena-artik"
-    },
-    {
-      "name": "ARTIK 710",
-      "slug": "artik710",
-      "repo": "balena-os/balena-artik710"
     },
     {
       "name": "ASUS Tinkerboard",
@@ -107,16 +97,6 @@
       "name": "NanoPi Neo Air",
       "slug": "nanopi-neo-air",
       "repo": "balena-os/balena-allwinner"
-    },
-    {
-      "name": "Nitrogen 6X",
-      "slug": "nitrogen6x",
-      "repo": "balena-os/balena-fsl-arm"
-    },
-    {
-      "name": "Nitrogen 6X Quad 2GB",
-      "slug": "nitrogen6xq2g",
-      "repo": "balena-os/balena-fsl-arm"
     },
     {
       "name": "NPE X500 M3",
