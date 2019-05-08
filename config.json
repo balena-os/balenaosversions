@@ -181,6 +181,11 @@
       "repo": "balena-os/balena-jetson-tx2"
     },
     {
+      "name": "SRD3",
+      "slug": "srd3-tx2",
+      "repo": "balena-os/balena-jetson-tx2"
+    },
+    {
       "name": "SKX2",
       "slug": "skx2",
       "repo": "balena-os/balena-jetson-tx2"
