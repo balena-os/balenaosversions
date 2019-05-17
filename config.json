@@ -114,6 +114,11 @@
       "repo": "balena-os/balena-odroid"
     },
     {
+      "name": "OrangePi Lite",
+      "slug": "orange-pi-lite",
+      "repo": "balena-os/balena-allwinner"
+    },
+    {
       "name": "OrangePi Zero",
       "slug": "orange-pi-zero",
       "repo": "balena-os/balena-allwinner"
