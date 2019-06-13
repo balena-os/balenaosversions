@@ -79,21 +79,6 @@
       "repo": "balena-os/balena-iot2000"
     },
     {
-      "name": "Jetson Nano",
-      "slug": "jetson-nano",
-      "repo": "balena-os/balena-jetson-nano"
-    },
-    {
-      "name": "Jetson TX1",
-      "slug": "jetson-tx1",
-      "repo": "balena-os/balena-jetson-tx1"
-    },
-    {
-      "name": "Jetson TX2",
-      "slug": "jetson-tx2",
-      "repo": "balena-os/balena-jetson-tx2"
-    },
-    {
       "name": "NanoPi Neo Air",
       "slug": "nanopi-neo-air",
       "repo": "balena-os/balena-allwinner"
@@ -107,6 +92,26 @@
       "name": "NPE X500 M3",
       "slug": "npe-x500-m3",
       "repo": "balena-os/balena-raspberrypi"
+    },
+    {
+      "name": "Nvidia Jetson Nano",
+      "slug": "jetson-nano",
+      "repo": "balena-os/balena-jetson-nano"
+    },
+    {
+      "name": "Nvidia Jetson TX1",
+      "slug": "jetson-tx1",
+      "repo": "balena-os/balena-jetson-tx1"
+    },
+    {
+      "name": "Nvidia Jetson TX2",
+      "slug": "jetson-tx2",
+      "repo": "balena-os/balena-jetson-tx2"
+    },
+    {
+      "name": "Nvidia Jetson Xavier",
+      "slug": "jetson-xavier",
+      "repo": "balena-os/balena-jetson-nano"
     },
     {
       "name": "ODroid C1",
