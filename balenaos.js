@@ -120,7 +120,7 @@ $(document).ready(function() {
         let supervisorVersion = await getSupervisorVersion(
           `https://raw.githubusercontent.com/${
             config.osrepo
-          }/master/meta-resin-common/recipes-containers/resin-supervisor/resin-supervisor.inc`
+          }/master/meta-balena-common/recipes-containers/resin-supervisor/resin-supervisor.inc`
         );
 
         try {
