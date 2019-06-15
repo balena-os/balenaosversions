@@ -3,9 +3,7 @@ var storage = window.localStorage;
 var getVersion = function(deviceInfo) {
   return Promise.resolve(
     $.get(
-      `https://raw.githubusercontent.com/${
-        deviceInfo.repo
-      }/master/.versionbot/CHANGELOG.yml`
+      `https://raw.githubusercontent.com/${deviceInfo.repo}/master/.versionbot/CHANGELOG.yml`
     ).then(function(data) {
       var doc = jsyaml.load(data);
       return { info: deviceInfo, result: doc[0] };
@@ -89,22 +87,14 @@ $(document).ready(function() {
 
     _(data.devicetypes).each(function(d) {
       $("table#devices tr:last").after(
-        `<tr><td>${d.name}</td><td class="repo ${
-          d.slug
-        }">checking...</td><td class="staging ${
-          d.slug
-        }">checking...</td><td class="production ${
-          d.slug
-        }">checking...</td></tr>`
+        `<tr><td>${d.name}</td><td class="repo ${d.slug}">checking...</td><td class="staging ${d.slug}">checking...</td><td class="production ${d.slug}">checking...</td></tr>`
       );
       platformversions[d.slug] = {};
     });
 
     $.when(
       $.get(
-        `https://raw.githubusercontent.com/${
-          config.osrepo
-        }/master/.versionbot/CHANGELOG.yml`
+        `https://raw.githubusercontent.com/${config.osrepo}/master/.versionbot/CHANGELOG.yml`
       ),
       $.get(`https://${config.staging}/config`),
       $.get(`https://${config.production}/config`)
@@ -118,18 +108,14 @@ $(document).ready(function() {
         var osVersion = doc[0].version;
         var releaseDate = moment(doc[0].date);
         let supervisorVersion = await getSupervisorVersion(
-          `https://raw.githubusercontent.com/${
-            config.osrepo
-          }/master/meta-balena-common/recipes-containers/resin-supervisor/resin-supervisor.inc`
+          `https://raw.githubusercontent.com/${config.osrepo}/master/meta-balena-common/recipes-containers/resin-supervisor/resin-supervisor.inc`
         );
 
         try {
           // Check potential patched verion on branch A.B.x (if released version is A.B.C)
           var patchOsBranch = osVersion.replace(/(.*\..*\.).*/, "$1x");
           let something = await $.get(
-            `https://raw.githubusercontent.com/${
-              config.osrepo
-            }/${patchOsBranch}/.versionbot/CHANGELOG.yml`
+            `https://raw.githubusercontent.com/${config.osrepo}/${patchOsBranch}/.versionbot/CHANGELOG.yml`
           )
             .done(async function(osrepoPatchResult) {
               var docPatch = jsyaml.load(osrepoPatchResult);
@@ -141,9 +127,7 @@ $(document).ready(function() {
                 osVersion = osPatchVersion;
                 releaseDate = moment(docPatch[0].date);
                 supervisorVersion = await getSupervisorVersion(
-                  `https://raw.githubusercontent.com/${
-                    config.osrepo
-                  }/${patchOsBranch}/meta-resin-common/recipes-containers/resin-supervisor/resin-supervisor.inc`
+                  `https://raw.githubusercontent.com/${config.osrepo}/${patchOsBranch}/meta-resin-common/recipes-containers/resin-supervisor/resin-supervisor.inc`
                 );
               }
             })
@@ -158,9 +142,7 @@ $(document).ready(function() {
         // find the Supervisor Version changelog anchor, since that includes the
         // release date, so we cannot just infer from the version without a query
         let supervisorChangelogAnchor = await $.get(
-          `https://raw.githubusercontent.com/${
-            config.supervisorrepo
-          }/master/CHANGELOG.md`
+          `https://raw.githubusercontent.com/${config.supervisorrepo}/master/CHANGELOG.md`
         ).then(changelog => {
           const regex = new RegExp(
             `## (${_.trimStart(supervisorVersion, "v").replace(
