@@ -206,8 +206,23 @@
       "repo": "balena-os/balena-ts"
     },
     {
-      "name": "UP-Board",
+      "name": "UP Board",
       "slug": "up-board",
+      "repo": "balena-os/balena-up-board"
+    },
+    {
+      "name": "UP Core",
+      "slug": "up-core",
+      "repo": "balena-os/balena-up-board"
+    },
+    {
+      "name": "UP Core Plus",
+      "slug": "up-core-plus",
+      "repo": "balena-os/balena-up-board"
+    },
+    {
+      "name": "UP Squared",
+      "slug": "up-squared",
       "repo": "balena-os/balena-up-board"
     },
     {
