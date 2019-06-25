@@ -32,7 +32,7 @@
     {
       "name": "Beagleboard-XM",
       "slug": "beagleboard-xm",
-      "repo": "balena-os/balena-beaglebone",
+      "repo": "balena-os/balena-beaglebone"
     },
     {
       "name": "Beaglebone Black",
