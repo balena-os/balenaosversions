@@ -30,6 +30,11 @@
       "repo": "balena-os/balena-allwinner"
     },
     {
+      "name": "Beagleboard-XM",
+      "slug": "beagleboard-xm",
+      "repo": "balena-os/balena-beaglebone",
+    },
+    {
       "name": "Beaglebone Black",
       "slug": "beaglebone-black",
       "repo": "balena-os/balena-beaglebone",
