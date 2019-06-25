@@ -101,7 +101,7 @@
     {
       "name": "Nvidia blackboard TX2",
       "slug": "blackboard-tx2",
-      "repo": "balena-os/balena-jetson-tx2",
+      "repo": "balena-os/balena-jetson-tx2"
     },
     {
       "name": "Nvidia Jetson Nano",
