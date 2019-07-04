@@ -226,21 +226,6 @@
       "repo": "balena-os/balena-up-board"
     },
     {
-      "name": "UP Core",
-      "slug": "up-core",
-      "repo": "balena-os/balena-up-board"
-    },
-    {
-      "name": "UP Core Plus",
-      "slug": "up-core-plus",
-      "repo": "balena-os/balena-up-board"
-    },
-    {
-      "name": "UP Squared",
-      "slug": "up-squared",
-      "repo": "balena-os/balena-up-board"
-    },
-    {
       "name": "Variscite DART-6UL",
       "slug": "imx6ul-var-dart",
       "repo": "balena-os/balena-variscite"
