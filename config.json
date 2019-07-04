@@ -94,6 +94,11 @@
       "repo": "balena-os/balena-nanopc-t4"
     },
     {
+      "name": "Nitrogen8M Mini SBC",
+      "slug": "nitrogen8mm",
+      "repo": "balena-os/balena-fsl-arm"
+    },
+    {
       "name": "NPE X500 M3",
       "slug": "npe-x500-m3",
       "repo": "balena-os/balena-raspberrypi"
