@@ -206,6 +206,11 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
+      "name": "Raspberry Pi 4 64bit",
+      "slug": "raspberrypi4-64",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
       "name": "CTI Spacely TX2",
       "slug": "spacely-tx2",
       "repo": "balena-os/balena-jetson-tx2"
