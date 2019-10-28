@@ -84,6 +84,11 @@
       "repo": "balena-os/balena-iot2000"
     },
     {
+      "name": "Microsoft Surface 6",
+      "slug": "surface-pro-6",
+      "repo": "balena-os/balena-intel"
+    },
+    {
       "name": "NanoPi Neo Air",
       "slug": "nanopi-neo-air",
       "repo": "balena-os/balena-allwinner"
