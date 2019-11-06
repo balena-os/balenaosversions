@@ -84,8 +84,13 @@
       "repo": "balena-os/balena-iot2000"
     },
     {
-      "name": "Microsoft Surface 6",
+      "name": "Microsoft Surface Pro 6",
       "slug": "surface-pro-6",
+      "repo": "balena-os/balena-intel"
+    },
+    {
+      "name": "Microsoft Surface Go",
+      "slug": "surface-go",
       "repo": "balena-os/balena-intel"
     },
     {
