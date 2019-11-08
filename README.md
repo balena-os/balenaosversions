@@ -9,7 +9,3 @@ list the released balenaOS versions across different stages
   repo's latest version (with link to changelog and time since version), as well
   as the released version in [staging](https://dashboard.balena-staging.com) and
   [production](https://dashboard.balena-cloud.com).
-
-For detailed info on what's shown, check the Legend at the bottom of the page.
-
-![screenshot](screenshot.png)
