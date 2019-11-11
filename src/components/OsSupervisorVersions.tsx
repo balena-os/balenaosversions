@@ -1,9 +1,19 @@
 import React, { useEffect } from 'react';
-import { Table, Link } from 'rendition';
-import { getChangelogVersion, changelogVersion } from './utils';
-import configData from './config.json';
+import { Table, Link, TableColumn } from 'rendition';
+import {
+  getChangelogVersion,
+  changelogVersion,
+  getChangelogLink
+} from '../utils';
+import configData from '../config.json';
 
-const getCols = (supervisorAnchor: string, osAnchor: string) => [
+export interface LatestOsSupervisorState {
+  osUpstreamRelease: string;
+  latestSupervisorVersion: string;
+  releaseDate: string;
+}
+
+const getCols = <T extends any>(supervisorAnchor: string, osAnchor: string): TableColumn<T>[] => [
   {
     field: 'osUpstreamRelease',
     label: 'BalenaOS upstream release',
@@ -17,7 +27,7 @@ const getCols = (supervisorAnchor: string, osAnchor: string) => [
     }
   },
   {
-    field: 'supervisorVersion',
+    field: 'latestSupervisorVersion',
     label: 'Supervisor version in release',
     sortable: false,
     render: (val: any) => {
@@ -44,13 +54,13 @@ export const OsSupervisorVersions = ({
 }) => {
   const [supervisorAnchor, setSupervisorAnchor] = React.useState('');
   const [osAnchor, setOsAnchor] = React.useState('');
-  const data = [
+  const data: LatestOsSupervisorState[] = [
     {
       osUpstreamRelease: latestOs.osVersion || '',
       releaseDate: latestOs.releaseDate
         ? latestOs.releaseDate.toLocaleString()
         : '',
-      supervisorVersion
+      latestSupervisorVersion: supervisorVersion
     }
   ];
 
@@ -81,14 +91,9 @@ export const OsSupervisorVersions = ({
       return;
     }
 
-    setOsAnchor(
-      `https://github.com/${
-        configData.osrepo
-      }/blob/master/CHANGELOG.md#v${changelogVersion(latestOs.osVersion)}`
-    );
+    setOsAnchor(getChangelogLink(configData.osrepo, latestOs.osVersion));
   }, [latestOs.osVersion]);
 
-  const columns = getCols(supervisorAnchor, osAnchor);
-
-  return <Table<any> data={data} columns={columns} />;
+  const columns = getCols<LatestOsSupervisorState>(supervisorAnchor, osAnchor);
+  return <Table<LatestOsSupervisorState> data={data} columns={columns} />;
 };
