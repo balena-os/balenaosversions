@@ -25,6 +25,11 @@
       "repo": "balena-os/balena-asus-tinker-board"
     },
     {
+      "name": "Auvidea JN30B Nano",
+      "slug": "jn30b-nano",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
       "name": "BananaPi M1+",
       "slug": "bananapi-m1-plus",
       "repo": "balena-os/balena-allwinner"
