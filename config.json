@@ -109,7 +109,12 @@
       "repo": "balena-os/balena-nanopc-t4"
     },
     {
-      "name": "Nitrogen8M Mini SBC",
+      "name": "Nitrogen8M DWE",
+      "slug": "nitrogen8mm-dwe",
+      "repo": "balena-os/balena-fsl-arm"
+    },
+    {
+      "name": "Nitrogen8MM Mini SBC",
       "slug": "nitrogen8mm",
       "repo": "balena-os/balena-fsl-arm"
     },
