@@ -139,32 +139,8 @@ $(document).ready(function() {
         } catch {
           // this is to catch the exception from the previous request and not to bail
         }
-        // find the Supervisor Version changelog anchor, since that includes the
-        // release date, so we cannot just infer from the version without a query
-        let supervisorChangelogAnchor = await $.get(
-          `https://raw.githubusercontent.com/${config.supervisorrepo}/master/CHANGELOG.md`
-        ).then(changelog => {
-          const regex = new RegExp(
-            `## (${_.trimStart(supervisorVersion, "v").replace(
-              /\./g,
-              "\\."
-            )} - .*)`,
-            "gim"
-          );
-          let anchor;
-          while ((m = regex.exec(changelog)) !== null) {
-            // This is necessary to avoid infinite loops with zero-width matches
-            if (m.index === regex.lastIndex) {
-              regex.lastIndex++;
-            }
-            m.forEach((match, groupIndex) => {
-              if (groupIndex === 1) {
-                anchor = match;
-              }
-            });
-          }
-          return anchor;
-        });
+        // derive the Supervisor Version changelog anchor
+        const formatSupervisorAnchor = (version) => version.replace('.', '')
 
         $("td#osversion").html(
           `<span><a href="https://github.com/${
@@ -182,7 +158,7 @@ $(document).ready(function() {
           `<span><a href="https://github.com/${
             config.supervisorrepo
           }/blob/master/CHANGELOG.md#${changelogVersion(
-            supervisorChangelogAnchor
+            formatSupervisorAnchor(supervisorVersion)
           )}" target="_blank">${supervisorVersion}</a></span>`
         );
         highlightNew("osVersion", osVersion, "td#osversion span");
