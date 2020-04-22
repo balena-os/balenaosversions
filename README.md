@@ -1,7 +1,7 @@
 # BalenaOS versions
 
 A [simple page](https://balena-io-playground.github.io/balenaosversions/) that
-list the released balenaOS versions across different stages:
+list the released balenaOS versions across different stages
 
 * Shows the latest BalenaOS version (ie. upstream), with link to the changelog
   and the time since it was deployed
