@@ -1,6 +1,6 @@
 {
   "name": "balenaos-versions",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@types/node": "13.11.0",
