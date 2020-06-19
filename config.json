@@ -266,6 +266,16 @@
       "repo": "balena-os/balena-variscite-mx8"
     },
     {
+      "name": "Variscite DART-MX8M Mini NRT",
+      "slug": "imx8mm-var-dart-nrt",
+      "repo": "balena-os/balena-variscite-mx8"
+    },
+    {
+      "name": "Variscite DART-MX8M Mini PLT",
+      "slug": "imx8mm-var-dart-plt",
+      "repo": "balena-os/balena-variscite-mx8"
+    },
+    {
       "name": "Variscite SOM-MX6",
       "slug": "var-som-mx6",
       "repo": "balena-os/balena-variscite"
