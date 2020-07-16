@@ -68,7 +68,7 @@
     {
       "name": "Generic x86_64",
       "slug": "genericx86-64-ext",
-      "repo": "balena-os/balena-intel",
+      "repo": "balena-os/balena-intel"
     },
     {
       "name": "Hummingboard",
