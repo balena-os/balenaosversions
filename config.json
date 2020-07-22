@@ -20,6 +20,11 @@
       "repo": "balena-os/balena-asus-tinker-board"
     },
     {
+      "name": "CTI Astro TX2 G+",
+      "slug": "astro-tx2",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
       "name": "ASUS Tinkerboard S",
       "slug": "asus-tinker-board-s",
       "repo": "balena-os/balena-asus-tinker-board"
