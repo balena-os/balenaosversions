@@ -164,6 +164,11 @@
       "repo": "balena-os/balena-jetson"
     },
     {
+      "name": "Nvidia Jetson Xavier NX Devkit eMMC",
+      "slug": "jetson-xavier-nx-devkit-emmc",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
       "name": "ODroid C1",
       "slug": "odroid-c1",
       "repo": "balena-os/balena-odroid"
