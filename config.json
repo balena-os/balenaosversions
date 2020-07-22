@@ -71,6 +71,11 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
+      "name": "Coral Dev Board",
+      "slug": "coral-dev",
+      "repo": "balena-os/balena-coral"
+    },
+    {
       "name": "CompuLab CL-SOM-iMX8",
       "slug": "cl-som-imx8",
       "repo": "balena-os/balena-compulab"
