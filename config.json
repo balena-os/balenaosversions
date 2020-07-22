@@ -71,6 +71,11 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
+      "name": "Coral Dev Board",
+      "slug": "coral-dev",
+      "repo": "balena-os/balena-coral"
+    },
+    {
       "name": "CompuLab CL-SOM-iMX8",
       "slug": "cl-som-imx8",
       "repo": "balena-os/balena-compulab"
@@ -298,6 +303,11 @@
     {
       "name": "Variscite DART-MX8M",
       "slug": "imx8m-var-dart",
+      "repo": "balena-os/balena-variscite-mx8"
+    },
+    {
+      "name": "Variscite DART-MX8M Mini",
+      "slug": "imx8mm-var-dart",
       "repo": "balena-os/balena-variscite-mx8"
     },
     {
