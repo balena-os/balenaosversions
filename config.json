@@ -5,6 +5,11 @@
   "staging": "api.balena-staging.com",
   "devicetypes": [
     {
+      "name": "Aetina N310 TX2",
+      "slug": "n310-tx2",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
       "name": "Aetina N510 TX2",
       "slug": "n510-tx2",
       "repo": "balena-os/balena-jetson"
@@ -15,14 +20,14 @@
       "repo": "balena-os/balena-artik"
     },
     {
-      "name": "ASUS Tinkerboard",
-      "slug": "asus-tinker-board",
-      "repo": "balena-os/balena-asus-tinker-board"
-    },
-    {
       "name": "CTI Astro TX2 G+",
       "slug": "astro-tx2",
       "repo": "balena-os/balena-jetson"
+    },
+    {
+      "name": "ASUS Tinkerboard",
+      "slug": "asus-tinker-board",
+      "repo": "balena-os/balena-asus-tinker-board"
     },
     {
       "name": "ASUS Tinkerboard S",
