@@ -214,6 +214,11 @@
       "repo": "balena-os/balena-jetson"
     },
     {
+      "name": "CTI Photon Xavier NX",
+      "slug": "photon-xavier-nx",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
       "name": "Pocket Beagle",
       "slug": "beaglebone-pocket",
       "repo": "balena-os/balena-beaglebone"
