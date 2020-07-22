@@ -5,14 +5,24 @@
   "staging": "api.balena-staging.com",
   "devicetypes": [
     {
+      "name": "Aetina N310 TX2",
+      "slug": "n310-tx2",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
       "name": "Aetina N510 TX2",
       "slug": "n510-tx2",
-      "repo": "balena-os/balena-jetson-tx2"
+      "repo": "balena-os/balena-jetson"
     },
     {
       "name": "ARTIK 533s",
       "slug": "artik533s",
       "repo": "balena-os/balena-artik"
+    },
+    {
+      "name": "CTI Astro TX2 G+",
+      "slug": "astro-tx2",
+      "repo": "balena-os/balena-jetson"
     },
     {
       "name": "ASUS Tinkerboard",
@@ -131,12 +141,17 @@
     {
       "name": "Nvidia blackboard TX2",
       "slug": "blackboard-tx2",
-      "repo": "balena-os/balena-jetson-tx2"
+      "repo": "balena-os/balena-jetson-skx2"
     },
     {
-      "name": "Nvidia Jetson Nano",
+      "name": "Nvidia Jetson Nano SD-CARD",
       "slug": "jetson-nano",
-      "repo": "balena-os/balena-jetson-nano"
+      "repo": "balena-os/balena-jetson"
+    },
+    {
+      "name": "Nvidia Jetson Nano eMMC",
+      "slug": "jetson-nano-emmc",
+      "repo": "balena-os/balena-jetson"
     },
     {
       "name": "Nvidia Jetson TX1",
@@ -146,12 +161,17 @@
     {
       "name": "Nvidia Jetson TX2",
       "slug": "jetson-tx2",
-      "repo": "balena-os/balena-jetson-tx2"
+      "repo": "balena-os/balena-jetson"
     },
     {
       "name": "Nvidia Jetson Xavier",
       "slug": "jetson-xavier",
-      "repo": "balena-os/balena-jetson-nano"
+      "repo": "balena-os/balena-jetson"
+    },
+    {
+      "name": "Nvidia Jetson Xavier NX Devkit eMMC",
+      "slug": "jetson-xavier-nx-devkit-emmc",
+      "repo": "balena-os/balena-jetson"
     },
     {
       "name": "ODroid C1",
@@ -186,7 +206,17 @@
     {
       "name": "CTI Orbitty TX2",
       "slug": "orbitty-tx2",
-      "repo": "balena-os/balena-jetson-tx2"
+      "repo": "balena-os/balena-jetson"
+    },
+    {
+      "name": "CTI Photon Nano",
+      "slug": "photon-nano",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
+      "name": "CTI Photon Xavier NX",
+      "slug": "photon-xavier-nx",
+      "repo": "balena-os/balena-jetson"
     },
     {
       "name": "Pocket Beagle",
@@ -238,17 +268,17 @@
     {
       "name": "CTI Spacely TX2",
       "slug": "spacely-tx2",
-      "repo": "balena-os/balena-jetson-tx2"
+      "repo": "balena-os/balena-jetson"
     },
     {
       "name": "SRD3",
       "slug": "srd3-tx2",
-      "repo": "balena-os/balena-jetson-tx2"
+      "repo": "balena-os/balena-jetson-srd3"
     },
     {
       "name": "SKX2",
       "slug": "skx2",
-      "repo": "balena-os/balena-jetson-tx2"
+      "repo": "balena-os/balena-jetson-skx2"
     },
     {
       "name": "TS4900",
