@@ -209,6 +209,11 @@
       "repo": "balena-os/balena-jetson"
     },
     {
+      "name": "CTI Photon Nano",
+      "slug": "photon-nano",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
       "name": "Pocket Beagle",
       "slug": "beaglebone-pocket",
       "repo": "balena-os/balena-beaglebone"
