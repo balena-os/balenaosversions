@@ -144,6 +144,11 @@
       "repo": "balena-os/balena-jetson"
     },
     {
+      "name": "Nvidia Jetson Nano eMMC",
+      "slug": "jetson-nano-emmc",
+      "repo": "balena-os/balena-jetson"
+    },
+    {
       "name": "Nvidia Jetson TX1",
       "slug": "jetson-tx1",
       "repo": "balena-os/balena-jetson-tx1"
