@@ -261,13 +261,18 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
-      "name": "Revolution Pi Core 3",
-      "slug": "revpi-core-3",
+      "name": "Raspberry Pi 4 64bit",
+      "slug": "raspberrypi4-64",
       "repo": "balena-os/balena-raspberrypi"
     },
     {
-      "name": "Raspberry Pi 4 64bit",
-      "slug": "raspberrypi4-64",
+      "name": "Revolution Pi Connect",
+      "slug": "revpi-connect",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
+      "name": "Revolution Pi Core 3",
+      "slug": "revpi-core-3",
       "repo": "balena-os/balena-raspberrypi"
     },
     {
