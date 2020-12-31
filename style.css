@@ -19,6 +19,10 @@ table#balenaos tr td, td.repo, td.staging, td.production {
   background-color: lightgreen;
 }
 
+.uptodatewithrepo {
+  background-color: orange;
+}
+
 .outofdate {
   background-color: hotpink;
 }
