@@ -266,6 +266,11 @@
       "repo": "balena-os/balena-raspberrypi"
     },
     {
+      "name": "Raspberry Pi 400 64bit",
+      "slug": "raspberrypi400-64",
+      "repo": "balena-os/balena-raspberrypi"
+    },
+    {
       "name": "Revolution Pi Connect",
       "slug": "revpi-connect",
       "repo": "balena-os/balena-raspberrypi"
