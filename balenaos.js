@@ -233,8 +233,12 @@ $(document).ready(function() {
             }
 
             // Mark staging versions up-to-date status
-            if (repouptodate && platformversions[slug]["staging"] === version) {
+            if (repouptodate &&
+              platformversions[slug]["staging"] === version
+            ) {
               $(`td.staging.${slug}`).addClass("uptodate");
+            } else if (platformversions[slug]["staging"] === version) {
+              $(`td.staging.${slug}`).addClass("uptodatewithrepo");
             } else {
               $(`td.staging.${slug}`).addClass("outofdate");
             }
@@ -245,6 +249,8 @@ $(document).ready(function() {
               platformversions[slug]["production"] === version
             ) {
               $(`td.production.${slug}`).addClass("uptodate");
+            } else if (platformversions[slug]["production"] === version) {
+              $(`td.production.${slug}`).addClass("uptodatewithrepo");
             } else {
               $(`td.production.${slug}`).addClass("outofdate");
             }
